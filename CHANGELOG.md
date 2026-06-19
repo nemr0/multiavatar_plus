@@ -1,19 +1,23 @@
-## 0.1.0
+## 0.2.0
 
-* Multiavatar generator`.
-## 0.1.1
+* Refactor avatar data structure and improve SVG handling
 
-* Fix color ranges and improve the matching`.
-## 0.1.2
+## 0.1.5
 
-* Generate avatars with transparent background`.
+* Fix semi-colon removal bug
+## 0.1.4
+
+* Migrate package to Null-Safety
 ## 0.1.3
 
 * update crypto dependencie + add exemple.
 * Generate avatars with transparent background`.
-## 0.1.4
+## 0.1.2
 
-* Migrate package to Null-Safety
-## 0.1.5
+* Generate avatars with transparent background`.
+## 0.1.1
 
-* Fix semi-colon removal bug
+* Fix color ranges and improve the matching`.
+## 0.1.0
+
+* Multiavatar generator`.

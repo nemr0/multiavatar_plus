@@ -17,8 +17,9 @@ void main() {
 
       /// use svg package to
     });
-    test('Generate a svg file without background', () {
-      final noBackgroundAvatar = multiavatar('X-SLAYER', trBackground: true);
+    test('Generate a svg file with transparent background', () {
+      final noBackgroundAvatar =
+          multiavatar('X-SLAYER', transparentBackground: true);
 
       expect(
         noBackgroundAvatar,

@@ -1,6 +1,12 @@
-# Multiavatar #
+# Multiavatar Plus #
 
 <img src="https://raw.githubusercontent.com/multiavatar/Multiavatar/main/logo.png?v=001" width="65">
+
+> **Fork notice:** `multiavatar_plus` is a maintained fork of the original
+> [`multiavatar`](https://pub.dev/packages/multiavatar) package
+> ([X-SLAYER/Multiavatar](https://github.com/X-SLAYER/Multiavatar)), which is no
+> longer being updated. Same API, kept current with recent Flutter/Dart SDKs.
+> Published from [nemr0/multiavatar_plus](https://github.com/nemr0/multiavatar_plus).
 
 Flutter Wrapper for [Multiavatar](https://multiavatar.com)
 
@@ -14,11 +20,15 @@ In total, it is possible to generate **12,230,590,464** unique avatars.
 
 ### Installation and usage ###
 
-Add multiavatar to your pubspec:
+Add multiavatar_plus to your pubspec:
 
 ```yaml
 dependencies:
-  multiavatar: any # or the latest version on Pub
+  multiavatar_plus: any # or the latest version on Pub
+```
+
+```dart
+import 'package:multiavatar_plus/multiavatar_plus.dart';
 ```
 
 ```dart

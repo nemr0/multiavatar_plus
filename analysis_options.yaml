@@ -1,0 +1,4 @@
+analyzer:
+  exclude:
+    # Demo app is a separate package, not part of the shipped library.
+    - example/**

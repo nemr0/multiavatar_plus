@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:multiavatar/multiavatar.dart';
+import 'package:multiavatar_plus/multiavatar_plus.dart';
 
 void main() {
   runApp(MyApp());

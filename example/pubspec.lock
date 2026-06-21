@@ -163,13 +163,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.17.0"
-  multiavatar:
+  multiavatar_plus:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.1.5"
+    version: "0.2.0"
   path:
     dependency: transitive
     description:

@@ -32,11 +32,14 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   String _avatarSvg = '';
-  void _generateAvatar() {
-    ///The svg code
-    log(multiavatar(DateTime.now().toIso8601String()));
+  GenderType _gender = GenderType.neutral;
+  String _avatarSeed = '';
+  void _generateAvatar({bool useLastSeed = false}) {
+    if (!useLastSeed) {
+      _avatarSeed = DateTime.now().toIso8601String();
+    }
     setState(() {
-      _avatarSvg = multiavatar(DateTime.now().toIso8601String());
+      _avatarSvg = multiavatar(_avatarSeed, gender: _gender);
     });
   }
 
@@ -66,6 +69,20 @@ class _MyHomePageState extends State<MyHomePage> {
               _avatarSvg,
               height: 200,
               width: 200,
+            ),
+            SizedBox(height: 20),
+            DropdownButton<GenderType>(
+              value: _gender,
+              items: GenderType.values.map((GenderType gender) {
+                return DropdownMenuItem<GenderType>(
+                    value: gender, child: Text(gender.name));
+              }).toList(),
+              onChanged: (GenderType? newGender) {
+                setState(() {
+                  _gender = newGender ?? GenderType.neutral;
+                });
+                _generateAvatar(useLastSeed: true);
+              },
             ),
             SizedBox(height: 20),
             Expanded(

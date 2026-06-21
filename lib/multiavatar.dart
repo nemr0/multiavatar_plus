@@ -938,8 +938,23 @@ Map<String, Map<String, String>> _buildParts() {
   return sP;
 }
 
-String multiavatar(String string, {bool transparentBackground = false}) {
+enum GenderType { male, female, neutral }
+
+/// [gender] constrains mouth/top parts. [GenderType.neutral] (default) applies
+/// no filtering. A '[m]' / '[f]' prefix on [string] overrides [gender].
+String multiavatar(String string,
+    {bool transparentBackground = false,
+    GenderType gender = GenderType.neutral}) {
   string += '';
+
+  final pre = string.length >= 3 ? string.substring(0, 3) : '';
+  if (pre == '[f]') {
+    gender = GenderType.female;
+    string = string.substring(3);
+  } else if (pre == '[m]') {
+    gender = GenderType.male;
+    string = string.substring(3);
+  }
 
   String hash = '';
   if (string.length == 0) return hash;
@@ -988,6 +1003,36 @@ String multiavatar(String string, {bool transparentBackground = false}) {
       else
         p[part] = nr + 'A';
     }
+  }
+
+  // Gender-exclusive parts: if a part belongs to the opposite gender, swap it.
+  const femaleMouth = ['02A', '02B', '02C'];
+  const femaleTop = ['02A', '02C'];
+  const maleMouth = [
+    '04A', '04B', '04C', '07A', '07B', '07C', '10A', '10B', '11A', '11B',
+    '11C', '12A', '12B', '12C', '13A', '13B', '13C', '14A', '14B', '14C'
+  ];
+  const maleTop = ['04A', '04B', '04C', '05C', '10A'];
+
+  String nextPart(String cur, List<String> exclude) {
+    var num = int.parse(cur.substring(0, 2));
+    final suffix = cur[2];
+    String next;
+    do {
+      num += 1;
+      if (num > 15) num = 0;
+      next = (num < 10 ? '0' : '') + num.toString() + suffix;
+    } while (exclude.contains(next));
+    return next;
+  }
+
+  if (gender == GenderType.male) {
+    if (femaleMouth.contains(p['mouth']))
+      p['mouth'] = nextPart(p['mouth'], femaleMouth);
+    if (femaleTop.contains(p['top'])) p['top'] = nextPart(p['top'], femaleTop);
+  } else if (gender == GenderType.female) {
+    if (maleMouth.contains(p['mouth'])) p['mouth'] = '02' + p['mouth'][2];
+    if (maleTop.contains(p['top'])) p['top'] = nextPart(p['top'], maleTop);
   }
 
   String getFinal(part, partV, theme) {

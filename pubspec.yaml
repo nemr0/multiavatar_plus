@@ -1,11 +1,12 @@
-name: multiavatar
+name: multiavatar_plus
 description: Multiavatar is a multicultural avatar maker. 12 billion unique multicultural avatars 
 version: 0.2.0
-homepage: https://github.com/X-SLAYER/Multiavatar
-documentation: https://github.com/X-SLAYER/Multiavatar
+homepage: https://github.com/nemr0/Multiavatar
+repository: https://github.com/nemr0/Multiavatar
+documentation: https://github.com/nemr0/Multiavatar
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.12.0 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:

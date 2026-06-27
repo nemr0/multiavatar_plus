@@ -1,3 +1,7 @@
+/// Generates unique, deterministic SVG avatars from any string.
+///
+/// Call [multiavatar] with a seed string (a username, email, or id) to get
+/// back the SVG markup for that seed's avatar.
 library multiavatar;
 
 import 'dart:convert';
@@ -938,6 +942,11 @@ Map<String, Map<String, String>> _buildParts() {
   return sP;
 }
 
+/// Returns the SVG markup for the avatar derived from [string].
+///
+/// The same [string] always produces the same avatar. Returns an empty string
+/// when [string] is empty. Set [transparentBackground] to `true` to omit the
+/// circular background.
 String multiavatar(String string, {bool transparentBackground = false}) {
   string += '';
 

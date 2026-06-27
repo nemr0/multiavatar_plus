@@ -1,11 +1,11 @@
-## 0.3.0-beta.1
-
-* Add gender selection for generated avatars ([multiavatar/Multiavatar#1](https://github.com/multiavatar/Multiavatar/issues/1)).
-
-## 0.2.0+1
+## 0.3.0-beta.2
 
 * Add dartdoc comments to public API
 * Fix `transparentBackground` example in README
+
+## 0.3.0-beta.1
+
+* Add gender selection for generated avatars ([multiavatar/Multiavatar#1](https://github.com/multiavatar/Multiavatar/issues/1)).
 
 ## 0.2.0
 
